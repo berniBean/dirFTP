@@ -66,6 +66,36 @@ namespace WindowsFormsApp2
 
         }
 
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
+
+            string archivoDescagra = ltvArchivos.SelectedItems[0].ToString();
+            uri = new Uri("ftp://" + txtServidor.Text + "//" + archivoDescagra);
+            ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
+
+
+            ClienteRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+            FtpWebResponse respuesta = (FtpWebResponse)ClienteRequest.GetResponse();
+            Stream s = respuesta.GetResponseStream();
+            FileStream fs = new FileStream(@"C:\Users\efloresp\Documents\descargaFTP"+archivoDescagra, FileMode.Create, FileAccess.Write);
+            crearArchivo(s, fs);
+
+        }
+
+        private void crearArchivo(Stream origen, Stream destino)
+        {
+
+            byte[] buffer = new byte[1024];
+            int bytesLeidos = origen.Read(buffer, 0, 1024);
+            while( bytesLeidos != 0)
+            {
+                destino.Write(buffer, 0, bytesLeidos);
+                bytesLeidos = origen.Read(buffer, 0, 1024);
+            }
+
+            origen.Close();
+            destino.Close();
+        }
         private List<Archivo> obtnerLista(string datos)
         {
             List<Archivo> retorno = new List<Archivo>();
@@ -116,9 +146,6 @@ namespace WindowsFormsApp2
             public string fecha;
         }
 
-        private void btnDescargar_Click(object sender, EventArgs e)
-        {
-            FtpWebRequest requ
-        }
+
     }
 }
