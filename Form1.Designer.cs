@@ -36,9 +36,9 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnConectar = new System.Windows.Forms.Button();
             this.rtbSalida = new System.Windows.Forms.RichTextBox();
-            this.ltvArchivos = new System.Windows.Forms.ListBox();
             this.btnDescargar = new System.Windows.Forms.Button();
             this.txtRutaDescarga = new System.Windows.Forms.TextBox();
+            this.ltvArchivos = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // Servidor
@@ -107,14 +107,6 @@
             this.rtbSalida.TabIndex = 8;
             this.rtbSalida.Text = "";
             // 
-            // ltvArchivos
-            // 
-            this.ltvArchivos.FormattingEnabled = true;
-            this.ltvArchivos.Location = new System.Drawing.Point(18, 139);
-            this.ltvArchivos.Name = "ltvArchivos";
-            this.ltvArchivos.Size = new System.Drawing.Size(149, 290);
-            this.ltvArchivos.TabIndex = 9;
-            // 
             // btnDescargar
             // 
             this.btnDescargar.Location = new System.Drawing.Point(201, 98);
@@ -132,14 +124,23 @@
             this.txtRutaDescarga.Size = new System.Drawing.Size(202, 20);
             this.txtRutaDescarga.TabIndex = 11;
             // 
+            // ltvArchivos
+            // 
+            this.ltvArchivos.HideSelection = false;
+            this.ltvArchivos.Location = new System.Drawing.Point(18, 139);
+            this.ltvArchivos.Name = "ltvArchivos";
+            this.ltvArchivos.Size = new System.Drawing.Size(149, 285);
+            this.ltvArchivos.TabIndex = 12;
+            this.ltvArchivos.UseCompatibleStateImageBehavior = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.ltvArchivos);
             this.Controls.Add(this.txtRutaDescarga);
             this.Controls.Add(this.btnDescargar);
-            this.Controls.Add(this.ltvArchivos);
             this.Controls.Add(this.rtbSalida);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.txtPass);
@@ -165,9 +166,9 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.RichTextBox rtbSalida;
-        private System.Windows.Forms.ListBox ltvArchivos;
         private System.Windows.Forms.Button btnDescargar;
         private System.Windows.Forms.TextBox txtRutaDescarga;
+        private System.Windows.Forms.ListView ltvArchivos;
     }
 }
 

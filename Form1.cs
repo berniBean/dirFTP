@@ -69,7 +69,7 @@ namespace WindowsFormsApp2
         private void btnDescargar_Click(object sender, EventArgs e)
         {
 
-            string archivoDescagra = ltvArchivos.SelectedItems[0].ToString();
+            string archivoDescagra = ltvArchivos.SelectedItems[0].Text;
             uri = new Uri("ftp://" + txtServidor.Text + "//" + archivoDescagra);
             ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
 
@@ -77,7 +77,7 @@ namespace WindowsFormsApp2
             ClienteRequest.Method = WebRequestMethods.Ftp.DownloadFile;
             FtpWebResponse respuesta = (FtpWebResponse)ClienteRequest.GetResponse();
             Stream s = respuesta.GetResponseStream();
-            FileStream fs = new FileStream(@"C:\Users\efloresp\Documents\descargaFTP"+archivoDescagra, FileMode.Create, FileAccess.Write);
+            FileStream fs = new FileStream(@"C:\descargaFTP\"+archivoDescagra, FileMode.Create, FileAccess.Write);
             crearArchivo(s, fs);
 
         }
