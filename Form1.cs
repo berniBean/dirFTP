@@ -42,6 +42,8 @@ namespace WindowsFormsApp2
             StreamReader sr = new StreamReader(respuesta.GetResponseStream(), Encoding.UTF8);
             string resultado = sr.ReadToEnd();
             rtbSalida.Text = resultado;
+            rtbSalida.Text = respuesta.WelcomeMessage + "\r\n"+resultado;
+
             respuesta.Close();
 
 
