@@ -15,6 +15,9 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
+        private Uri uri;
+        private FtpWebRequest ClienteRequest;
+        private NetworkCredential credenciales;
         public Form1()
         {
             InitializeComponent();
@@ -26,10 +29,10 @@ namespace WindowsFormsApp2
             {
 
 
-                Uri uri = new Uri("ftp://" + txtServidor.Text + "//");
-                FtpWebRequest ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
+                uri = new Uri("ftp://" + txtServidor.Text + "//");
+                ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
 
-                NetworkCredential credenciales = new NetworkCredential();
+                credenciales = new NetworkCredential();
 
                 credenciales.Domain = "efloresp";
                 credenciales.UserName = txtUsuario.Text;
@@ -111,6 +114,11 @@ namespace WindowsFormsApp2
             public bool bDirectorio;
             public Int64 tamaño;
             public string fecha;
+        }
+
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
+            FtpWebRequest requ
         }
     }
 }

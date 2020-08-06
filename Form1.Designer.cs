@@ -37,6 +37,8 @@
             this.btnConectar = new System.Windows.Forms.Button();
             this.rtbSalida = new System.Windows.Forms.RichTextBox();
             this.ltvArchivos = new System.Windows.Forms.ListBox();
+            this.btnDescargar = new System.Windows.Forms.Button();
+            this.txtRutaDescarga = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Servidor
@@ -99,25 +101,44 @@
             // 
             // rtbSalida
             // 
-            this.rtbSalida.Location = new System.Drawing.Point(201, 102);
+            this.rtbSalida.Location = new System.Drawing.Point(201, 139);
             this.rtbSalida.Name = "rtbSalida";
-            this.rtbSalida.Size = new System.Drawing.Size(441, 322);
+            this.rtbSalida.Size = new System.Drawing.Size(441, 285);
             this.rtbSalida.TabIndex = 8;
             this.rtbSalida.Text = "";
             // 
             // ltvArchivos
             // 
             this.ltvArchivos.FormattingEnabled = true;
-            this.ltvArchivos.Location = new System.Drawing.Point(18, 100);
+            this.ltvArchivos.Location = new System.Drawing.Point(18, 139);
             this.ltvArchivos.Name = "ltvArchivos";
-            this.ltvArchivos.Size = new System.Drawing.Size(149, 329);
+            this.ltvArchivos.Size = new System.Drawing.Size(149, 290);
             this.ltvArchivos.TabIndex = 9;
+            // 
+            // btnDescargar
+            // 
+            this.btnDescargar.Location = new System.Drawing.Point(201, 98);
+            this.btnDescargar.Name = "btnDescargar";
+            this.btnDescargar.Size = new System.Drawing.Size(75, 23);
+            this.btnDescargar.TabIndex = 10;
+            this.btnDescargar.Text = "Descargar";
+            this.btnDescargar.UseVisualStyleBackColor = true;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
+            // 
+            // txtRutaDescarga
+            // 
+            this.txtRutaDescarga.Location = new System.Drawing.Point(291, 98);
+            this.txtRutaDescarga.Name = "txtRutaDescarga";
+            this.txtRutaDescarga.Size = new System.Drawing.Size(202, 20);
+            this.txtRutaDescarga.TabIndex = 11;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.txtRutaDescarga);
+            this.Controls.Add(this.btnDescargar);
             this.Controls.Add(this.ltvArchivos);
             this.Controls.Add(this.rtbSalida);
             this.Controls.Add(this.btnConectar);
@@ -145,6 +166,8 @@
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.RichTextBox rtbSalida;
         private System.Windows.Forms.ListBox ltvArchivos;
+        private System.Windows.Forms.Button btnDescargar;
+        private System.Windows.Forms.TextBox txtRutaDescarga;
     }
 }
 
