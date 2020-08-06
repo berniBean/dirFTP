@@ -36,6 +36,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnConectar = new System.Windows.Forms.Button();
             this.rtbSalida = new System.Windows.Forms.RichTextBox();
+            this.ltvArchivos = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // Servidor
@@ -98,17 +99,26 @@
             // 
             // rtbSalida
             // 
-            this.rtbSalida.Location = new System.Drawing.Point(67, 101);
+            this.rtbSalida.Location = new System.Drawing.Point(201, 102);
             this.rtbSalida.Name = "rtbSalida";
-            this.rtbSalida.Size = new System.Drawing.Size(476, 322);
+            this.rtbSalida.Size = new System.Drawing.Size(441, 322);
             this.rtbSalida.TabIndex = 8;
             this.rtbSalida.Text = "";
+            // 
+            // ltvArchivos
+            // 
+            this.ltvArchivos.FormattingEnabled = true;
+            this.ltvArchivos.Location = new System.Drawing.Point(18, 100);
+            this.ltvArchivos.Name = "ltvArchivos";
+            this.ltvArchivos.Size = new System.Drawing.Size(149, 329);
+            this.ltvArchivos.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.ltvArchivos);
             this.Controls.Add(this.rtbSalida);
             this.Controls.Add(this.btnConectar);
             this.Controls.Add(this.txtPass);
@@ -134,6 +144,7 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.RichTextBox rtbSalida;
+        private System.Windows.Forms.ListBox ltvArchivos;
     }
 }
 
