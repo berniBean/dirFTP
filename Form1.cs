@@ -90,7 +90,7 @@ namespace WindowsFormsApp2
                 {
                     string[] strs = procesaItem.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     f.tamaño = Int64.Parse(strs[0]);
-                    procesaItem = string.Join(" ", 1, strs);
+                    procesaItem = string.Join(" ",strs,1,strs.Length-1);
                     f.bDirectorio = false;
                 }
 
