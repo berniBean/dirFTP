@@ -34,7 +34,7 @@ namespace WindowsFormsApp2
 
                 credenciales = new NetworkCredential();
 
-                credenciales.Domain = "efloresp";
+                credenciales.Domain = "WORKGROUP";
                 credenciales.UserName = txtUsuario.Text;
                 credenciales.Password = txtPass.Text;
 
@@ -68,18 +68,27 @@ namespace WindowsFormsApp2
 
         private void btnDescargar_Click(object sender, EventArgs e)
         {
-
-            string archivoDescagra = ltvArchivos.SelectedItems[0].Text;
-            uri = new Uri("ftp://" + txtServidor.Text + "//" + archivoDescagra);
+            string archivoDescarga = ltvArchivos.SelectedItems[0].Text;
+            uri = new Uri("ftp://" + txtServidor.Text + "/" + archivoDescarga);
             ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
 
+            credenciales = new NetworkCredential();
+
+            credenciales.Domain = "efloresp";
+            credenciales.UserName = txtUsuario.Text;
+            credenciales.Password = txtPass.Text;
+
+            ClienteRequest.Credentials = credenciales;
+            ClienteRequest.EnableSsl = false;
+            ClienteRequest.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            ClienteRequest.KeepAlive = true;
+            ClienteRequest.UsePassive = true;
 
             ClienteRequest.Method = WebRequestMethods.Ftp.DownloadFile;
             FtpWebResponse respuesta = (FtpWebResponse)ClienteRequest.GetResponse();
             Stream s = respuesta.GetResponseStream();
-            FileStream fs = new FileStream(@"C:\descargaFTP\"+archivoDescagra, FileMode.Create, FileAccess.Write);
+            FileStream fs = new FileStream(@"C:\pruebaArchivo\" + archivoDescarga, FileMode.Create, FileAccess.Write);
             crearArchivo(s, fs);
-
         }
 
         private void crearArchivo(Stream origen, Stream destino)
