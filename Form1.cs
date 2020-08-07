@@ -34,7 +34,7 @@ namespace WindowsFormsApp2
 
                 credenciales = new NetworkCredential();
 
-                credenciales.Domain = "WORKGROUP";
+                credenciales.Domain = "efloresp";
                 credenciales.UserName = txtUsuario.Text;
                 credenciales.Password = txtPass.Text;
 
