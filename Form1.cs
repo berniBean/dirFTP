@@ -34,7 +34,7 @@ namespace WindowsFormsApp2
 
                 credenciales = new NetworkCredential();
 
-                credenciales.Domain = "efloresp";
+                credenciales.Domain = "WORKGROUP";
                 credenciales.UserName = txtUsuario.Text;
                 credenciales.Password = txtPass.Text;
 
@@ -65,6 +65,29 @@ namespace WindowsFormsApp2
             }
 
         }
+        private void btnCarga_Click(object sender, EventArgs e)
+        {
+            uri = new Uri("ftp://" + txtServidor.Text + "/" + "nuevoPDF.pdf");
+            ClienteRequest = (FtpWebRequest)WebRequest.Create(uri);
+
+            credenciales = new NetworkCredential();
+
+            credenciales.Domain = "WORKGROUP";
+            credenciales.UserName = txtUsuario.Text;
+            credenciales.Password = txtPass.Text;
+
+            ClienteRequest.Credentials = credenciales;
+            ClienteRequest.EnableSsl = false;
+            ClienteRequest.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            ClienteRequest.KeepAlive = true;
+            ClienteRequest.UsePassive = true;
+
+            ClienteRequest.Method = WebRequestMethods.Ftp.UploadFile;
+            //FtpWebResponse respuesta = (FtpWebResponse)ClienteRequest.GetResponse();
+            Stream destino = ClienteRequest.GetRequestStream();
+            FileStream origen = new FileStream(txtCarga.Text +@"\" + txtArchivoCarga.Text, FileMode.Open, FileAccess.Read);
+            crearArchivo(origen, destino);
+        }
 
         private void btnDescargar_Click(object sender, EventArgs e)
         {
@@ -74,7 +97,7 @@ namespace WindowsFormsApp2
 
             credenciales = new NetworkCredential();
 
-            credenciales.Domain = "efloresp";
+            credenciales.Domain = "WORKGROUP";
             credenciales.UserName = txtUsuario.Text;
             credenciales.Password = txtPass.Text;
 
@@ -90,6 +113,7 @@ namespace WindowsFormsApp2
             FileStream fs = new FileStream(@"C:\pruebaArchivo\" + archivoDescarga, FileMode.Create, FileAccess.Write);
             crearArchivo(s, fs);
         }
+
 
         private void crearArchivo(Stream origen, Stream destino)
         {
